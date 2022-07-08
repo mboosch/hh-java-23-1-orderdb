@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -40,10 +41,10 @@ class ProductRepoTest {
         ProductRepo productRepo = new ProductRepo(products);
 
         //WHEN
-        Optional<Product> actual = productRepo.getProduct("2");
+        Product actual = productRepo.getProduct("2");
 
         //THEN
-        assertEquals(new Product("2", "guitar"), actual.get());
+        assertEquals(new Product("2", "guitar"), actual);
 
     }
 
@@ -58,12 +59,14 @@ class ProductRepoTest {
         );
         ProductRepo productRepo = new ProductRepo(products);
 
-        //WHEN
-        Optional<Product> actual = productRepo.getProduct("4");
-
-        //THEN
-        assertTrue(actual.isEmpty());
-
+        //WHEN & THEN
+        try {
+            productRepo.getProduct("4");
+            fail();
+        }
+        catch (NoSuchElementException e) {
+            assertEquals("Prduct with id: 4 not found!", e.getMessage());
+        }
     }
 
 }

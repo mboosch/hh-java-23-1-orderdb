@@ -8,6 +8,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -28,7 +29,7 @@ class ShopServiceTest {
         ShopService shopService = new ShopService(productRepo, orderRepo);
 
         //WHEN
-        Order actual = shopService.orderProducts(List.of("1", "3"));
+        Order actual = shopService.orderProducts(List.of("1", "3"), "123");
 
         //THEN
         List<Product> expected = List.of(
@@ -53,11 +54,11 @@ class ShopServiceTest {
 
         try {
             //WHEN
-            shopService.orderProducts(List.of("1", "4"));
+            shopService.orderProducts(List.of("1", "4"), "123");
             fail();
-        } catch (IllegalArgumentException actual) {
+        } catch (NoSuchElementException actual) {
             //THEN
-            assertEquals("Product with ID 4 not found", actual.getMessage());
+            assertEquals("Prduct with id: 4 not found!", actual.getMessage());
         }
     }
 

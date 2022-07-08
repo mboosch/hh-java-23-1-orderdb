@@ -4,6 +4,7 @@ import de.neuefische.rem214orderdb.model.Product;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 public class ProductRepo {
@@ -17,13 +18,12 @@ public class ProductRepo {
         return products;
     }
 
-    public Optional<Product> getProduct(String id) {
+    public Product getProduct(String id) {
         for (Product product : products) {
             if (product.getId().equals(id)) {
-                return Optional.of(product);
+                return product;
             }
         }
-        return Optional.empty();
-
+        throw new NoSuchElementException("Prduct with id: " + id + " not found!");
     }
 }

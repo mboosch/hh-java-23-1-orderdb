@@ -7,8 +7,6 @@ import de.neuefische.rem214orderdb.repo.ProductRepo;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
 
 public class ShopService {
 
@@ -20,26 +18,20 @@ public class ShopService {
         this.orderRepo = orderRepo;
     }
 
-    public Order orderProducts(List<String> productIds) {
+    public Order orderProducts(List<String> productIds, String id) {
         List<Product> productsToOrder = new ArrayList<>();
         for (String productId : productIds) {
             Product productToAdd = getProduct(productId);
             productsToOrder.add(productToAdd);
         }
-        String id = UUID.randomUUID().toString();
         return orderRepo.addOrder(new Order(id, productsToOrder));
     }
 
-    private Product getProduct(String productId){
-        Optional<Product> optionalProduct = productRepo.getProduct(productId);
-        if (optionalProduct.isPresent()) {
-            return optionalProduct.get();
-        } else {
-            throw new IllegalArgumentException("Product with ID " + productId + " not found");
-        }
+    private Product getProduct(String productId) {
+        return productRepo.getProduct(productId);
     }
 
-    public List<Order> listOrders(){
+    public List<Order> listOrders() {
         return orderRepo.listOrders();
     }
 }
