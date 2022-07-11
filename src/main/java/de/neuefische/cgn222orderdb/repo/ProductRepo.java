@@ -1,11 +1,10 @@
-package de.neuefische.rem214orderdb.repo;
+package de.neuefische.cgn222orderdb.repo;
 
-import de.neuefische.rem214orderdb.model.Product;
+import de.neuefische.cgn222orderdb.model.Product;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
 public class ProductRepo {
     private final List<Product> products;
@@ -24,6 +23,6 @@ public class ProductRepo {
                 return product;
             }
         }
-        throw new NoSuchElementException("Prduct with id: " + id + " not found!");
+        throw new NoSuchElementException("Product with id: " + id + " not found!");
     }
 }

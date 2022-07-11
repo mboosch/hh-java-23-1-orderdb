@@ -1,12 +1,11 @@
-package de.neuefische.rem214orderdb.repo;
+package de.neuefische.cgn222orderdb.repo;
 
-import de.neuefische.rem214orderdb.model.Product;
+import de.neuefische.cgn222orderdb.model.Product;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -65,7 +64,7 @@ class ProductRepoTest {
             fail();
         }
         catch (NoSuchElementException e) {
-            assertEquals("Prduct with id: 4 not found!", e.getMessage());
+            assertEquals("Product with id: 4 not found!", e.getMessage());
         }
     }
 

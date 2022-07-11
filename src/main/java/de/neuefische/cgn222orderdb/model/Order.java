@@ -1,4 +1,4 @@
-package de.neuefische.rem214orderdb.model;
+package de.neuefische.cgn222orderdb.model;
 
 import java.util.List;
 import java.util.Objects;
