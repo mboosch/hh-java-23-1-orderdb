@@ -1,9 +1,9 @@
-package de.neuefische.rem214orderdb.service;
+package de.neuefische.cgn222orderdb.service;
 
-import de.neuefische.rem214orderdb.model.Order;
-import de.neuefische.rem214orderdb.model.Product;
-import de.neuefische.rem214orderdb.repo.OrderRepo;
-import de.neuefische.rem214orderdb.repo.ProductRepo;
+import de.neuefische.cgn222orderdb.model.Order;
+import de.neuefische.cgn222orderdb.model.Product;
+import de.neuefische.cgn222orderdb.repo.OrderRepo;
+import de.neuefische.cgn222orderdb.repo.ProductRepo;
 
 import java.util.ArrayList;
 import java.util.List;

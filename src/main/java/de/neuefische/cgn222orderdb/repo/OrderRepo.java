@@ -1,6 +1,6 @@
-package de.neuefische.rem214orderdb.repo;
+package de.neuefische.cgn222orderdb.repo;
 
-import de.neuefische.rem214orderdb.model.Order;
+import de.neuefische.cgn222orderdb.model.Order;
 
 import java.util.HashMap;
 import java.util.List;
