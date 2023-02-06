@@ -16,11 +16,18 @@ public class AppMain {
         ));
 
         ProductRepo productRepo = new ProductRepo(products);
+        
+        OrderRepo orderRepo = new OrderRepo();
+        
+        ShopService shopService = new ShopService(productRepo, orderRepo);
 
-        productRepo.listProducts().add(new Product("4", "apple"));
-        System.out.println(productRepo.listProducts());
+        System.out.println(shopService.listOrders());
+        
+        shopService.orderProducts(List.of("2", "3"), "35");
 
-
+        System.out.println(shopService.listOrders());
+        
+        System.out.println(shopService.getProduct("1"));
 
     }
 }
