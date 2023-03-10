@@ -27,7 +27,7 @@ public class ShopService {
         return orderRepo.addOrder(new Order(id, productsToOrder));
     }
 
-    private Product getProduct(String productId) {
+    public Product getProduct(String productId) {
         return productRepo.getProduct(productId);
     }
 
